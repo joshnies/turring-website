@@ -11,33 +11,14 @@ import routes from '../routes';
  * Navbar.
  */
 export default function Navbar() {
-  const [state, setState] = useState({
-    drawerOpen: false,
-  });
+  const [showDrawer, setShowDrawer] = useState(false);
 
-  const theme = useTheme();
   const isCollapsed = useMediaQuery('sm', { match: 'down' });
 
-  const toggleDrawer = () => {
-    setState({
-      drawerOpen: !state.drawerOpen,
-    });
-  };
-
-  const onCloseDrawer = () => {
-    setState({
-      drawerOpen: false,
-    });
-  };
-
-  const onOpenDrawer = () => {
-    setState({
-      drawerOpen: true,
-    });
-  };
+  const toggleDrawer = () => setShowDrawer(!showDrawer);
 
   const LinkList = () => {
-    if (isCollapsed) return <HamburgerButton onClick={() => {}} />;
+    if (isCollapsed) return <HamburgerButton onClick={toggleDrawer} />;
 
     return (
       <>
@@ -76,6 +57,7 @@ export default function Navbar() {
         >
           <li
             css={{
+              margin: 0,
               '&::before': {
                 content: 'none',
               },
@@ -96,6 +78,7 @@ export default function Navbar() {
           <LinkList />
         </ul>
       </nav>
+      {showDrawer && isCollapsed && <NavDrawer />}
     </>
   );
 }

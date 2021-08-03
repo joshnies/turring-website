@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 /**
- * Navbar item.
+ * Navbar drawer item.
  */
-export default function NavItem(props: {
+export default function NavDrawerItem(props: {
   children: React.ReactNode;
   to: string;
   newTab?: boolean;
@@ -15,6 +15,7 @@ export default function NavItem(props: {
       <li
         css={{
           margin: 0,
+          padding: '8px 0',
           '&::before': {
             content: 'none',
           },
@@ -26,7 +27,7 @@ export default function NavItem(props: {
           rel="noreferrer"
           css={{
             textDecoration: 'none',
-            fontSize: 14,
+            fontSize: 18,
             fontWeight: 500,
             color: 'white',
             marginLeft: 50,
@@ -47,6 +48,7 @@ export default function NavItem(props: {
     <li
       css={{
         margin: 0,
+        padding: '8px 0',
         '&::before': {
           content: 'none',
         },
@@ -57,7 +59,7 @@ export default function NavItem(props: {
           href={to}
           css={{
             textDecoration: 'none',
-            fontSize: 14,
+            fontSize: 18,
             fontWeight: 500,
             color: 'white',
             marginLeft: 50,

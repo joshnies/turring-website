@@ -1,5 +1,3 @@
-import { Button } from '@geist-ui/react';
-
 const HamburgerLine = () => {
   return (
     <div
@@ -19,18 +17,19 @@ const HamburgerLine = () => {
 
 export default function HamburgerButton(props: { onClick: () => void }) {
   return (
-    <Button
-      iconRight={
-        <div>
-          <HamburgerLine />
-          <HamburgerLine />
-          <HamburgerLine />
-        </div>
-      }
-      auto
-      size="small"
+    <button
       aria-label="open-menu"
       onClick={props.onClick}
-    />
+      css={{
+        background: 'none',
+        outline: 'none',
+        border: 'none',
+        cursor: 'pointer',
+      }}
+    >
+      <HamburgerLine />
+      <HamburgerLine />
+      <HamburgerLine />
+    </button>
   );
 }
