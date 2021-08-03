@@ -16,6 +16,7 @@ export default function Navbar() {
   });
 
   const theme = useTheme();
+  const isCollapsed = useMediaQuery('sm', { match: 'down' });
 
   const toggleDrawer = () => {
     setState({
@@ -35,6 +36,20 @@ export default function Navbar() {
     });
   };
 
+  const LinkList = () => {
+    if (isCollapsed) return <HamburgerButton onClick={() => {}} />;
+
+    return (
+      <>
+        <NavItem to={routes.theory.index}>theory</NavItem>
+        <NavItem to={routes.theory.caseStudy}>case study</NavItem>
+        <NavItem to={routes.blog} newTab>
+          blog
+        </NavItem>
+      </>
+    );
+  };
+
   return (
     <>
       <nav
@@ -44,6 +59,7 @@ export default function Navbar() {
           width: '100%',
           height: 60,
           backgroundColor: 'black',
+          padding: '0 40px',
         }}
       >
         <ul
@@ -51,13 +67,11 @@ export default function Navbar() {
             display: 'flex',
             listStyle: 'none',
             alignItems: 'center',
+            justifyContent: isCollapsed ? 'space-between' : undefined,
             width: '100%',
             maxWidth: 1200,
             margin: '0 auto 0 auto',
             padding: 0,
-            [`@media (max-width: ${theme.breakpoints.md.max})`]: {
-              padding: '0 40px',
-            },
           }}
         >
           <li
@@ -79,11 +93,7 @@ export default function Navbar() {
               </a>
             </Link>
           </li>
-          <NavItem to={routes.theory.index}>theory</NavItem>
-          <NavItem to={routes.theory.caseStudy}>case study</NavItem>
-          <NavItem to={routes.blog} newTab>
-            blog
-          </NavItem>
+          <LinkList />
         </ul>
       </nav>
     </>
