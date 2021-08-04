@@ -18,7 +18,8 @@ export default function Navbar() {
   const toggleDrawer = () => setShowDrawer(!showDrawer);
 
   const LinkList = () => {
-    if (isCollapsed) return <HamburgerButton onClick={toggleDrawer} />;
+    if (isCollapsed)
+      return <HamburgerButton isActive={showDrawer} onClick={toggleDrawer} />;
 
     return (
       <>
@@ -40,7 +41,7 @@ export default function Navbar() {
           width: '100%',
           height: 60,
           backgroundColor: 'black',
-          padding: '0 40px',
+          // padding: '0 40px',
         }}
       >
         <ul
@@ -57,7 +58,7 @@ export default function Navbar() {
         >
           <li
             css={{
-              margin: 0,
+              margin: '0 0 0 24px',
               '&::before': {
                 content: 'none',
               },

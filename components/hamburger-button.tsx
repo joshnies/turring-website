@@ -1,21 +1,43 @@
-const HamburgerLine = () => {
-  return (
-    <div
-      css={{
-        width: 25,
-        height: 3,
-        background: 'white',
-        marginBottom: 7,
-        borderRadius: 2,
-        '&:last-child': {
-          marginBottom: 0,
-        },
-      }}
-    />
-  );
-};
+export default function HamburgerButton(props: {
+  isActive: boolean;
+  onClick: () => void;
+}) {
+  const Line = () => {
+    return (
+      <div
+        css={{
+          width: 25,
+          height: 3,
+          background: 'white',
+          marginBottom: 7,
+          borderRadius: 2,
+          '&:last-child': {
+            marginBottom: 0,
+          },
+        }}
+      />
+    );
+  };
 
-export default function HamburgerButton(props: { onClick: () => void }) {
+  const Icon = () => {
+    if (props.isActive) {
+      return (
+        <>
+          <Line />
+          <Line />
+        </>
+      );
+    }
+
+    return (
+      <>
+        <Line />
+        <Line />
+        <Line />
+      </>
+    );
+  };
+
   return (
     <button
       aria-label="open-menu"
@@ -25,11 +47,10 @@ export default function HamburgerButton(props: { onClick: () => void }) {
         outline: 'none',
         border: 'none',
         cursor: 'pointer',
+        margin: '0 40px 0 0',
       }}
     >
-      <HamburgerLine />
-      <HamburgerLine />
-      <HamburgerLine />
+      <Icon />
     </button>
   );
 }

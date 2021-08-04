@@ -13,11 +13,7 @@ export default function Layout(props: {
         <meta name="description" content="Turring." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        css={{
-          maxWidth: 1200,
-        }}
-      >
+      <main>
         <Navbar />
         {props.children}
       </main>
