@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { useMediaQuery, useTheme } from '@geist-ui/react';
+import { useTheme } from '@geist-ui/react';
+import styled from '@emotion/styled';
 
 import HamburgerButton from './hamburger-button';
 import NavItem from './nav-item';
@@ -12,25 +13,14 @@ import routes from '../routes';
  */
 export default function Navbar() {
   const [showDrawer, setShowDrawer] = useState(false);
-
-  const isCollapsed = useMediaQuery('sm', { match: 'down' });
+  const theme = useTheme();
 
   const toggleDrawer = () => setShowDrawer(!showDrawer);
-
-  const LinkList = () => {
-    if (isCollapsed)
-      return <HamburgerButton isActive={showDrawer} onClick={toggleDrawer} />;
-
-    return (
-      <>
-        <NavItem to={routes.theory.index}>theory</NavItem>
-        <NavItem to={routes.theory.caseStudy}>case study</NavItem>
-        <NavItem to={routes.blog} newTab>
-          blog
-        </NavItem>
-      </>
-    );
-  };
+  const DynamicNavItem = styled(NavItem)`
+    @media (max-width: ${theme.breakpoints.sm.max}) {
+      display: none;
+    }
+  `;
 
   return (
     <>
@@ -41,7 +31,6 @@ export default function Navbar() {
           width: '100%',
           height: 60,
           backgroundColor: 'black',
-          // padding: '0 40px',
         }}
       >
         <ul
@@ -49,11 +38,13 @@ export default function Navbar() {
             display: 'flex',
             listStyle: 'none',
             alignItems: 'center',
-            justifyContent: isCollapsed ? 'space-between' : undefined,
             width: '100%',
             maxWidth: 1200,
             margin: '0 auto 0 auto',
             padding: 0,
+            [`@media (max-width: ${theme.breakpoints.sm.max})`]: {
+              justifyContent: 'space-between',
+            },
           }}
         >
           <li
@@ -76,10 +67,17 @@ export default function Navbar() {
               </a>
             </Link>
           </li>
-          <LinkList />
+          <DynamicNavItem to={routes.theory.index}>theory</DynamicNavItem>
+          <DynamicNavItem to={routes.theory.caseStudy}>
+            case study
+          </DynamicNavItem>
+          <DynamicNavItem to={routes.blog} newTab>
+            blog
+          </DynamicNavItem>
+          <HamburgerButton isActive={showDrawer} onClick={toggleDrawer} />
         </ul>
       </nav>
-      {showDrawer && isCollapsed && <NavDrawer />}
+      {showDrawer && <NavDrawer />}
     </>
   );
 }

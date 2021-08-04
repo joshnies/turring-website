@@ -1,7 +1,11 @@
+import { useTheme } from '@geist-ui/react';
+
 export default function HamburgerButton(props: {
   isActive: boolean;
   onClick: () => void;
 }) {
+  const theme = useTheme();
+
   const Line = () => {
     return (
       <div
@@ -48,6 +52,9 @@ export default function HamburgerButton(props: {
         border: 'none',
         cursor: 'pointer',
         margin: '0 40px 0 0',
+        [`@media (min-width: ${theme.breakpoints.sm.max})`]: {
+          display: 'none',
+        },
       }}
     >
       <Icon />

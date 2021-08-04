@@ -4,6 +4,7 @@ import Link from 'next/link';
  * Navbar item.
  */
 export default function NavItem(props: {
+  className?: string;
   children: React.ReactNode;
   to: string;
   newTab?: boolean;
@@ -13,6 +14,7 @@ export default function NavItem(props: {
   if (newTab) {
     return (
       <li
+        className={props.className}
         css={{
           margin: 0,
           '&::before': {
@@ -45,6 +47,7 @@ export default function NavItem(props: {
 
   return (
     <li
+      className={props.className}
       css={{
         margin: 0,
         '&::before': {
