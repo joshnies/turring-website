@@ -11,7 +11,7 @@ import routes from '../routes';
 /**
  * Navbar.
  */
-export default function Navbar() {
+export default function Navbar(props: { activeRoute?: string }) {
   const [showDrawer, setShowDrawer] = useState(false);
   const theme = useTheme();
 
@@ -67,14 +67,26 @@ export default function Navbar() {
               </a>
             </Link>
           </li>
-          <DynamicNavItem to={routes.theory.index}>theory</DynamicNavItem>
-          <DynamicNavItem to={routes.theory.caseStudy}>
+          <DynamicNavItem
+            to={routes.theory.index}
+            activeRoute={props.activeRoute}
+          >
+            theory
+          </DynamicNavItem>
+          <DynamicNavItem
+            to={routes.theory.caseStudy}
+            activeRoute={props.activeRoute}
+          >
             case study
           </DynamicNavItem>
-          <DynamicNavItem to={routes.blog} newTab>
+          <DynamicNavItem
+            to={routes.blog}
+            activeRoute={props.activeRoute}
+            newTab
+          >
             blog
           </DynamicNavItem>
-          <HamburgerButton isActive={showDrawer} onClick={toggleDrawer} />
+          <HamburgerButton active={showDrawer} onClick={toggleDrawer} />
         </ul>
       </nav>
       {showDrawer && <NavDrawer />}

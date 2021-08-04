@@ -4,8 +4,11 @@ import Navbar from './navbar';
 
 export default function Layout(props: {
   title?: string;
+  activeRoute?: string;
   children: React.ReactNode;
 }) {
+  const { activeRoute, children } = props;
+
   return (
     <>
       <Head>
@@ -14,8 +17,8 @@ export default function Layout(props: {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar />
-        {props.children}
+        <Navbar activeRoute={activeRoute} />
+        {children}
       </main>
     </>
   );

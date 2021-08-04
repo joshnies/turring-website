@@ -7,9 +7,11 @@ export default function NavItem(props: {
   className?: string;
   children: React.ReactNode;
   to: string;
+  activeRoute?: string;
   newTab?: boolean;
 }) {
-  const { children, to, newTab } = props;
+  const { children, to, activeRoute, newTab } = props;
+  const opacity = to === activeRoute ? 1 : 0.75;
 
   if (newTab) {
     return (
@@ -31,6 +33,7 @@ export default function NavItem(props: {
             fontSize: 14,
             fontWeight: 500,
             color: 'white',
+            opacity,
             marginLeft: 50,
             userSelect: 'none',
             transition: '250ms ease',
@@ -63,6 +66,7 @@ export default function NavItem(props: {
             fontSize: 14,
             fontWeight: 500,
             color: 'white',
+            opacity,
             marginLeft: 50,
             userSelect: 'none',
             transition: '250ms ease',

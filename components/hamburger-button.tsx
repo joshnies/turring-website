@@ -1,7 +1,7 @@
 import { useTheme } from '@geist-ui/react';
 
 export default function HamburgerButton(props: {
-  isActive: boolean;
+  active: boolean;
   onClick: () => void;
 }) {
   const theme = useTheme();
@@ -24,7 +24,7 @@ export default function HamburgerButton(props: {
   };
 
   const Icon = () => {
-    if (props.isActive) {
+    if (props.active) {
       return (
         <>
           <Line />
