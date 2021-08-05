@@ -27,9 +27,19 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
+      <Html
+        lang="en"
+        css={{
+          height: '100%',
+        }}
+      >
         <Head />
-        <body>
+        <body
+          css={{
+            backgroundColor: 'black',
+            height: '100%',
+          }}
+        >
           <Main />
           <NextScript />
         </body>

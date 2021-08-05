@@ -1,6 +1,6 @@
 const routes = {
   theory: {
-    index: '/theory',
+    index: '/',
     caseStudy: '/theory/case-study',
   },
   blog: process.env.NEXT_PUBLIC_BLOG_URL ?? '/404',
