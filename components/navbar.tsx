@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { useTheme } from '@geist-ui/react';
 import styled from '@emotion/styled';
+import { useTheme } from '@geist-ui/react';
 import { ArrowUpRight } from '@geist-ui/react-icons';
+import { Avatar } from '@geist-ui/react';
 
 import HamburgerButton from './hamburger-button';
 import NavItem from './nav-item';
 import NavDrawer from './nav-drawer';
-import Avatar from './avatar';
 import routes from '../routes';
 
 /**
@@ -96,7 +96,16 @@ export default function Navbar(props: { activeRoute?: string }) {
             go to dashboard{' '}
             <ArrowUpRight size={18} color="white" css={{ marginTop: 5 }} />
           </DynamicNavItem>
-          <Avatar />
+          <span
+            css={{
+              marginLeft: 16,
+              [`@media (max-width: ${theme.breakpoints.sm.max})`]: {
+                display: 'none',
+              },
+            }}
+          >
+            <Avatar text="JN" />
+          </span>
           <HamburgerButton active={showDrawer} onClick={toggleDrawer} />
         </div>
       </nav>
