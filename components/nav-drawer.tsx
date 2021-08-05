@@ -1,4 +1,5 @@
 import { useTheme } from '@geist-ui/react';
+import { ArrowUpRight } from '@geist-ui/react-icons';
 
 import NavDrawerItem from './nav-drawer-item';
 import routes from '../routes';
@@ -24,6 +25,10 @@ export default function NavDrawer() {
       <NavDrawerItem to={routes.theory.caseStudy}>case study</NavDrawerItem>
       <NavDrawerItem to={routes.blog} newTab>
         blog
+      </NavDrawerItem>
+      <NavDrawerItem to={routes.dash}>
+        go to dashboard{' '}
+        <ArrowUpRight size={18} color="white" css={{ marginTop: 5 }} />
       </NavDrawerItem>
     </ul>
   );

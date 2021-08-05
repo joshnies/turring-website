@@ -51,7 +51,7 @@ export default function HamburgerButton(props: {
         outline: 'none',
         border: 'none',
         cursor: 'pointer',
-        margin: '0 40px 0 0',
+        margin: 0,
         [`@media (min-width: ${theme.breakpoints.sm.max})`]: {
           display: 'none',
         },

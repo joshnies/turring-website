@@ -2,10 +2,12 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useTheme } from '@geist-ui/react';
 import styled from '@emotion/styled';
+import { ArrowUpRight } from '@geist-ui/react-icons';
 
 import HamburgerButton from './hamburger-button';
 import NavItem from './nav-item';
 import NavDrawer from './nav-drawer';
+import Avatar from './avatar';
 import routes from '../routes';
 
 /**
@@ -81,7 +83,22 @@ export default function Navbar(props: { activeRoute?: string }) {
             contact us
           </DynamicNavItem>
         </ul>
-        <HamburgerButton active={showDrawer} onClick={toggleDrawer} />
+        <div
+          css={{
+            display: 'flex',
+            justifyContent: 'right',
+            alignItems: 'center',
+            width: '100%',
+            marginRight: 40,
+          }}
+        >
+          <DynamicNavItem to={routes.dash} activeRoute={props.activeRoute}>
+            go to dashboard{' '}
+            <ArrowUpRight size={18} color="white" css={{ marginTop: 5 }} />
+          </DynamicNavItem>
+          <Avatar />
+          <HamburgerButton active={showDrawer} onClick={toggleDrawer} />
+        </div>
       </nav>
       {showDrawer && <NavDrawer />}
     </>
