@@ -90,6 +90,7 @@ export default function Navbar(props: { activeRoute?: string }) {
             alignItems: 'center',
             width: '100%',
             marginRight: 40,
+            listStyle: 'none',
           }}
         >
           <DynamicNavItem to={routes.dash} activeRoute={props.activeRoute}>

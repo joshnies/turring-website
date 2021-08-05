@@ -4,7 +4,7 @@ import { GeistProvider, CssBaseline } from '@geist-ui/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <GeistProvider>
+    <GeistProvider themeType="dark">
       <CssBaseline />
       <Component {...pageProps} />
     </GeistProvider>
