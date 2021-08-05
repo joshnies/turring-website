@@ -27,7 +27,7 @@ export default function Navbar(props: { activeRoute?: string }) {
       <nav
         css={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           width: '100%',
           height: 60,
           backgroundColor: 'black',
@@ -42,9 +42,6 @@ export default function Navbar(props: { activeRoute?: string }) {
             maxWidth: 1200,
             margin: '0 auto 0 auto',
             padding: 0,
-            [`@media (max-width: ${theme.breakpoints.sm.max})`]: {
-              justifyContent: 'space-between',
-            },
           }}
         >
           <li
@@ -74,20 +71,17 @@ export default function Navbar(props: { activeRoute?: string }) {
             theory
           </DynamicNavItem>
           <DynamicNavItem
-            to={routes.theory.caseStudy}
-            activeRoute={props.activeRoute}
-          >
-            case study
-          </DynamicNavItem>
-          <DynamicNavItem
             to={routes.blog}
             activeRoute={props.activeRoute}
             newTab
           >
             blog
           </DynamicNavItem>
-          <HamburgerButton active={showDrawer} onClick={toggleDrawer} />
+          <DynamicNavItem to={routes.contactUs} activeRoute={props.activeRoute}>
+            contact us
+          </DynamicNavItem>
         </ul>
+        <HamburgerButton active={showDrawer} onClick={toggleDrawer} />
       </nav>
       {showDrawer && <NavDrawer />}
     </>
