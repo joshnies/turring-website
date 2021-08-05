@@ -29,6 +29,8 @@ export default function NavItem(props: {
           target="_blank"
           rel="noreferrer"
           css={{
+            display: 'flex',
+            alignItems: 'center',
             textDecoration: 'none',
             fontSize: 14,
             fontWeight: 500,
@@ -62,6 +64,8 @@ export default function NavItem(props: {
         <a
           href={to}
           css={{
+            display: 'flex',
+            alignItems: 'center',
             textDecoration: 'none',
             fontSize: 14,
             fontWeight: 500,

@@ -93,8 +93,7 @@ export default function Navbar(props: { activeRoute?: string }) {
           }}
         >
           <DynamicNavItem to={routes.dash} activeRoute={props.activeRoute}>
-            go to dashboard{' '}
-            <ArrowUpRight size={18} color="white" css={{ marginTop: 5 }} />
+            go to dashboard <ArrowUpRight size={18} color="white" />
           </DynamicNavItem>
           <span
             css={{
