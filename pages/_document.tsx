@@ -36,7 +36,6 @@ class MyDocument extends Document {
         <Head />
         <body
           css={{
-            backgroundColor: 'black',
             height: '100%',
           }}
         >
